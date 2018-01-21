@@ -14,9 +14,10 @@ import com.ar.empleado.Llamada;
 
 /**
  * The Class Dispacher.
- * 
+ * Singelton.
  * @author Juan valero
  */
+
 public class Dispacher extends Thread {
 
 	/** The empleados disponibles. */
@@ -39,7 +40,8 @@ public class Dispacher extends Thread {
 	
 
 	/**
-	 * Instantiates a new dispacher.
+	 * constructor de dispacher es un Singelton.
+	 * 
 	 */
 	private Dispacher() {
 		empleadosDisponibles = new PriorityBlockingQueue<Empleado>();
@@ -155,6 +157,11 @@ public class Dispacher extends Thread {
 			return dispacherSingelton;
 		}
 
+	}
+	
+	public int cantidadDeLLamadasRestantes() 
+	{
+		return this.llamadas.size();
 	}
 
 	/**
