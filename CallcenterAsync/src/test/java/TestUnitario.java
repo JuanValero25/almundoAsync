@@ -52,7 +52,7 @@ public class TestUnitario {
 		// dispacher.start();
 
 		for (Llamada llamada : llamadasConcurrentes) {
-			dispacher.llamadaEntrante(llamada);
+			dispacher.dispatchCall(llamada);
 
 		}
 
@@ -93,7 +93,7 @@ public class TestUnitario {
 		// dispacher.start();
 
 		for (Llamada llamada : llamadasConcurrentes) {
-			dispacher.llamadaEntrante(llamada);
+			dispacher.dispatchCall(llamada);
 
 		}
 

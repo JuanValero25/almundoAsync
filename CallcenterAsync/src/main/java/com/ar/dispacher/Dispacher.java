@@ -110,7 +110,7 @@ public class Dispacher extends Thread {
 	 * @param llamada
 	 *            the llamada
 	 */
-	public void llamadaEntrante(Llamada llamada) {
+	public void dispatchCall(Llamada llamada) {
 		llamadas.add(llamada);
 	}
 
@@ -156,7 +156,7 @@ public class Dispacher extends Thread {
 		} else {
 			return dispacherSingelton;
 		}
-
+  
 	}
 	
 	public int cantidadDeLLamadasRestantes() 
