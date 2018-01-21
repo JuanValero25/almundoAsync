@@ -49,7 +49,6 @@ public class TestUnitario {
 
 		Dispacher dispacher = Dispacher.getIstance();
 		dispacher.setEmpleadosDisponibles(empleados);
-		// dispacher.start();
 
 		for (Llamada llamada : llamadasConcurrentes) {
 			dispacher.dispatchCall(llamada);
@@ -62,8 +61,8 @@ public class TestUnitario {
 	}
 	
 	@Test
-	public void muchosEmpleadosPocasLlamadas() throws InterruptedException {
-		System.out.println("##### TEST 2 muchos empleados pocas llamadas 5 operadores, 1 supervisor, 1 director ######");
+	public void muchosEmpleadosMuchasLLamadas() throws InterruptedException {
+		System.out.println("##### TEST 2 muchos empleados 30  llamadas 10 operadores, 1 supervisor, 1 director ######");
 		
 		BlockingQueue<Empleado> empleados = new PriorityBlockingQueue<Empleado>();
 		Empleado empOperador1 = new Operador("Juan Operador");
@@ -71,6 +70,11 @@ public class TestUnitario {
 		Empleado empOperador3 = new Operador("Leticia Operador");
 		Empleado empOperador4 = new Operador("Matias Operador");
 		Empleado empOperador5 = new Operador("Vanesa Operador");
+		Empleado empOperador6 = new Operador("Carlos Operador");
+		Empleado empOperador7 = new Operador("Gensis Operador");
+		Empleado empOperador8 = new Operador("Laura Operador");
+		Empleado empOperador9 = new Operador("Linux Operador");
+		Empleado empOperador10 = new Operador("Windows Operador");
 		Empleado empSupervisor = new Supervisor("Alejandra Supervisora");
 		Empleado empDirecto = new Director("Carlos Director");
 
@@ -81,16 +85,20 @@ public class TestUnitario {
 		empleados.put(empOperador3);
 		empleados.put(empOperador4);
 		empleados.put(empOperador5);
+		empleados.put(empOperador6);
+		empleados.put(empOperador7);
+		empleados.put(empOperador8);
+		empleados.put(empOperador9);
+		empleados.put(empOperador10);
 
 		List<Llamada> llamadasConcurrentes = new ArrayList<Llamada>();
 
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 30; i++) {
 			llamadasConcurrentes.add(new Llamada());
 		}
 
 		Dispacher dispacher = Dispacher.getIstance();
 		dispacher.setEmpleadosDisponibles(empleados);
-		// dispacher.start();
 
 		for (Llamada llamada : llamadasConcurrentes) {
 			dispacher.dispatchCall(llamada);
