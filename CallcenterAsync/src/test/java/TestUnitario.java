@@ -1,10 +1,11 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import com.ar.dispacher.Dispacher;
@@ -57,13 +58,13 @@ public class TestUnitario {
 
 		sleep(25);
 
-		Assert.assertEquals(0, dispacher.cantidadDeLLamadasRestantes());
+		assertEquals(0, dispacher.cantidadDeLLamadasRestantes());
 	}
-	
+
 	@Test
 	public void muchosEmpleadosMuchasLLamadas() throws InterruptedException {
 		System.out.println("##### TEST 2 muchos empleados 30  llamadas 10 operadores, 1 supervisor, 1 director ######");
-		
+
 		BlockingQueue<Empleado> empleados = new PriorityBlockingQueue<Empleado>();
 		Empleado empOperador1 = new Operador("Juan Operador");
 		Empleado empOperador2 = new Operador("Jose Operador");
@@ -93,7 +94,7 @@ public class TestUnitario {
 
 		List<Llamada> llamadasConcurrentes = new ArrayList<Llamada>();
 
-		for (int i = 0; i < 30; i++) {
+		for (int i = 0; i < 15; i++) {
 			llamadasConcurrentes.add(new Llamada());
 		}
 
@@ -107,14 +108,15 @@ public class TestUnitario {
 
 		sleep(25);
 
-		Assert.assertEquals(0, dispacher.cantidadDeLLamadasRestantes());
+		assertEquals(0, dispacher.cantidadDeLLamadasRestantes());
 	}
 
 	/**
-	 * Sleep.
-	 * duerme el hilo principal tantos segundos. el dispacher es un hilo aparte da tiempo para que el hilo dispacher a que termine sus tareas
+	 * Sleep. duerme el hilo principal tantos segundos. el dispacher es un hilo
+	 * aparte da tiempo para que el hilo dispacher a que termine sus tareas
+	 * 
 	 * @param seconds
-	 *           
+	 * 
 	 */
 	private void sleep(int seconds) {
 
