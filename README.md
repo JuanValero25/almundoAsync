@@ -32,6 +32,7 @@ Agregar los tests unitarios que se crean convenientes.
 Agregar documentación de código.
 
 # Solucion
+se uso Junit5 para los Test agregado de forma automatica por el ide 
 
 El dispacher funciona como un hilo independiente y completamente asincrónico al hilo principal.
 
